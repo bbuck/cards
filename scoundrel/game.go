@@ -256,3 +256,33 @@ func (game *Scoundrel) HandleInput(input string) error {
 
 	return nil
 }
+
+// Room returns the current room cards.
+func (game *Scoundrel) Room() []*cards.Card {
+	return game.room
+}
+
+// Health returns the current health.
+func (game *Scoundrel) Health() int {
+	return game.health
+}
+
+// Weapon returns the current weapon.
+func (game *Scoundrel) Weapon() *cards.Card {
+	return game.weapon
+}
+
+// LastMonster returns the last monster encountered.
+func (game *Scoundrel) LastMonster() *cards.Card {
+	return game.lastMonster
+}
+
+// IsGameOver returns whether the game is over.
+func (game *Scoundrel) IsGameOver() bool {
+	return game.isGameOver()
+}
+
+// Score returns the current score.
+func (game *Scoundrel) Score() int {
+	return game.score()
+}

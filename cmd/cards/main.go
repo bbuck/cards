@@ -1,11 +1,17 @@
 package main
 
 import (
-	"bbuck.dev/cards/game"
-	"bbuck.dev/cards/scoundrel"
+	"fmt"
+	"os"
+
+	"bbuck.dev/cards/ui"
+	tea "github.com/charmbracelet/bubbletea"
 )
 
 func main() {
-	g := scoundrel.New()
-	game.Run(g)
+	p := tea.NewProgram(ui.NewModel())
+	if _, err := p.Run(); err != nil {
+		fmt.Printf("Error: %v\n", err)
+		os.Exit(1)
+	}
 }
