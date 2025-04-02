@@ -2,6 +2,7 @@ package ansi
 
 import (
 	"fmt"
+	"regexp"
 	"strings"
 )
 
@@ -94,4 +95,10 @@ func PopulateTemplateData(data map[string]any) {
 		data[name] = fgCode(color)
 		data[strings.ToUpper(name)] = bgCode(color)
 	}
+}
+
+// StripANSI removes all ANSI escape sequences from a string
+func StripANSI(str string) string {
+	re := regexp.MustCompile("\033\\[[0-9;]*[a-zA-Z]")
+	return re.ReplaceAllString(str, "")
 }
