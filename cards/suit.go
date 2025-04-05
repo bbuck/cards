@@ -63,3 +63,12 @@ func (s Suit) Display() string {
 
 	return "?"
 }
+
+// Color returns the color this suit belongs to.
+func (s Suit) Color() Color {
+	if s == SuitSpades || s == SuitClubs {
+		return ColorBlack
+	}
+
+	return ColorRed
+}

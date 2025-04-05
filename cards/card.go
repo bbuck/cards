@@ -41,11 +41,7 @@ type Card struct {
 // Color returns the color of the card based on it's suit. Spades and Clubs are
 // black cards and Hearts and Diamonds are red cards.
 func (c *Card) Color() Color {
-	if c.Suit == SuitSpades || c.Suit == SuitClubs {
-		return ColorBlack
-	}
-
-	return ColorRed
+	return c.Suit.Color()
 }
 
 // String returns a string representation of the card's suit and value.
